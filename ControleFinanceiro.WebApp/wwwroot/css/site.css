@@ -44,3 +44,6 @@ body {
 .header-bg-color a:hover{
     color: #f4fdff !important;
 }
+.barra-pesquisar{
+    margin-left: 500px;
+}
