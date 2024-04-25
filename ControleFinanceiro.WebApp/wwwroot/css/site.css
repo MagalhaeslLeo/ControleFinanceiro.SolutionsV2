@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.icones-navbar{
+    margin-right:130px;
+}
+.aside-menu {
+    height: 495px;
+    margin-top: -16px;
+    float: left;
+    background-color: #039090;
+}
+.aside-menu a{
+    color: #000000;
+    text-decoration: none;
+}
+.aside-menu a:hover {
+     color: #f4fdff;
+     text-decoration: none;
+     cursor: pointer;
+}
+.aside-menu a:focus {
+     color: #f4fdff;
+     text-decoration: none;
+}
+.header-bg-color {
+    background-color: #039090;
+}
+.header-bg-color a:hover{
+    color: #f4fdff !important;
+}
