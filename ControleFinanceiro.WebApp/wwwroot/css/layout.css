@@ -15,12 +15,13 @@ html {
 
 body {
   margin-bottom: 60px;
+  overflow:hidden;
 }
 .icones-navbar{
     margin-right:130px;
 }
 .aside-menu {
-    height: 495px;
+    min-height: 100vh;
     margin-top: -16px;
     float: left;
     background-color: #039090;
