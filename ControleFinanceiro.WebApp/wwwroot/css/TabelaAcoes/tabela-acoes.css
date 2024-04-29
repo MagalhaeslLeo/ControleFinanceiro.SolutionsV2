@@ -10,3 +10,17 @@
 	background-color:#b4d8fc;
 	border-radius: 10px;
 }
+.icone-adicionar {
+	display:flex;
+	justify-content:end;
+	cursor: pointer;
+	color: #B5B5C3;
+	font-size: 1.5rem;
+	text-decoration: none;
+}
+.icone-adicionar i {
+	padding-right: 10px;
+}
+.icone-adicionar:hover {
+	color: #1585f8;
+}
