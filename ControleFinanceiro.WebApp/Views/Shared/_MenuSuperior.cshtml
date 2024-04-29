@@ -18,13 +18,36 @@
                 <ul class="navbar-nav flex-grow-1 justify-content-end">
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                            <i class="bi bi-house-fill h3"></i>
+                            <i class="bi bi-person h3" data-bs-toggle="tooltip" title="Usuário"></i>
                         </a>
                     </li>
-                    <li class="nav-item icones-navbar">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
-                            <i class="bi bi-info-square-fill h3"></i>
+                    <li class="nav-item icones-navbar dropdown">
+                        <a class="nav-link text-dark" id="dropdown-modulos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list h3" data-bs-toggle="tooltip" title="Módulos"></i>
                         </a>
+                        <!--Área dos módulos-->
+                        @{
+                            var statusModuloAtivo = true;
+                            var statusDesativado = false;
+                        }
+                        <ul class="dropdown-menu" aria-labelledby="dropdown-modules">
+                            @if (statusModuloAtivo)
+                            {
+                                <li class="item-menu" id="modulo-cadastro">
+                                    <a class="cad-menu dropdown-item" href="#" data-module="">
+                                        <span class="title"> Cadastro </span>
+                                    </a>
+                                </li>
+                            }
+                            @if (statusModuloAtivo)
+                            {
+                                <li class="item-menu" id="modulo-adm">
+                                    <a class="cad-menu dropdown-item" href="#" data-module="">
+                                        <span class="title"> Administrativo </span>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
                     </li>
                 </ul>
             </div>

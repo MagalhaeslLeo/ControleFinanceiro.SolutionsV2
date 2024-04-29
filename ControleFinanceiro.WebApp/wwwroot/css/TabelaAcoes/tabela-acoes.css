@@ -1,0 +1,12 @@
+﻿.icones-tabela {
+	padding: 10px;
+	cursor: pointer;
+	color: #B5B5C3;
+	font-size: 1.5rem;
+	text-decoration: none;
+}
+.icones-tabela:hover{
+	color: #3699FF;
+	background-color:#b4d8fc;
+	border-radius: 10px;
+}

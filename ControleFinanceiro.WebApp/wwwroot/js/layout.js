@@ -1,4 +1,6 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
-
-// Write your JavaScript code.
+﻿$('#modulo-cadastro').click(function () {
+    $('#funcao-cadastro').css("display", "block");
+});
+$('#modulo-adm').click(function () {
+    $('#funcao-administrativo').css("display", "block");
+});
