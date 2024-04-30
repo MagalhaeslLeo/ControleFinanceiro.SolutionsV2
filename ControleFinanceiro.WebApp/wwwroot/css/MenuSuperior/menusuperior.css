@@ -1,0 +1,11 @@
+﻿.dropdown-style {
+	position: absolute;
+	background-color: rgba(14, 187, 187, 0.9);
+	height: calc(100vh - 306px);
+	border-top-left-radius: 35px;
+	border-left: 10px solid #007171;
+	border-right: 10px solid #007171;
+}
+.dropdown-item:hover {
+	background-color: none !important;
+}
