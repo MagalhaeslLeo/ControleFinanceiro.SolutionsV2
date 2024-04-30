@@ -25,6 +25,10 @@ body {
     margin-top: -16px;
     float: left;
     background-color: #039090;
+    border-top: 3px solid #007171;
+    border-left: 10px solid #007171;
+    border-right: 10px solid #007171;
+    border-bottom: 3px solid #007171;
 }
 .aside-menu a{
     color: #000000;
@@ -51,7 +55,7 @@ body {
 
 .funcionalidades {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     color: #000000;
     text-decoration: none;
     margin-bottom: 10px;

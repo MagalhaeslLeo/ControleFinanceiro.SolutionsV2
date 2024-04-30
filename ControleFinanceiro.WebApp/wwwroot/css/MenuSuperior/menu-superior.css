@@ -7,3 +7,15 @@
 	border-right: 10px solid #007171;
 	width: 182px;
 }
+.cad-menu {
+	text-decoration: none;
+	color: #000;
+}
+.item-decoration-cad {
+	margin-top: 20px;
+	margin-left: 10px;
+}
+.item-decoration{
+	margin-top: 12px;
+	margin-left: 10px
+}
