@@ -5,7 +5,5 @@
 	border-top-left-radius: 35px;
 	border-left: 10px solid #007171;
 	border-right: 10px solid #007171;
-}
-.dropdown-item:hover {
-	background-color: none !important;
+	width: 182px;
 }
