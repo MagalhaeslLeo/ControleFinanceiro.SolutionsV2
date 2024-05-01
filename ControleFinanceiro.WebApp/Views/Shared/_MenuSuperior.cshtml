@@ -26,27 +26,21 @@
                             <i class="bi bi-list h3" data-bs-toggle="tooltip" title="Módulos"></i>
                         </a>
                         <!--Área dos módulos-->
-                        @{
-                            var statusModuloAtivo = true;
-                            var statusDesativado = false;
-                        }
+                       
                         <ul class="dropdown-menu dropdown-style" aria-labelledby="dropdown-modules">
-                            @if (statusModuloAtivo)
-                            {
+
                                 <li class="item-menu item-decoration-cad" id="modulo-cadastro">
                                     <a class="cad-menu" href="#" data-module="">
                                         <span class="title bi bi-list-stars"> Cadastro </span>
                                     </a>
                                 </li>
-                            }
-                            @if (statusModuloAtivo)
-                            {
+
                                 <li class="item-menu item-decoration" id="modulo-adm">
                                     <a class="cad-menu" href="#" data-module="">
                                         <span class="title bi bi-briefcase"> Administrativo </span>
                                     </a>
                                 </li>
-                            }
+ 
                         </ul>
                     </li>
                 </ul>
