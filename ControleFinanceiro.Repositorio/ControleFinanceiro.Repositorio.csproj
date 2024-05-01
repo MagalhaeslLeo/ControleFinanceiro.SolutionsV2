@@ -22,8 +22,11 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\" />
-    <Folder Include="Mapeamentos\" />
     <Folder Include="Repositórios\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ControleFinanceiro.Dominio\ControleFinanceiro.Dominio.csproj" />
   </ItemGroup>
 
 </Project>
