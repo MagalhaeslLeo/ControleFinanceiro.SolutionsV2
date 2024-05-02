@@ -1,4 +1,6 @@
+using ControleFinanceiro.Dominio.Interfaces;
 using ControleFinanceiro.Repositorio.ContextoDB;
+using ControleFinanceiro.Repositorio.Repositórios;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web.UI;
 
@@ -25,11 +27,10 @@ namespace SouDizimista.WebApp
             services.AddAutoMapper(typeof(Startup));
 
             // Repositorios
-            //    services.AddRazorPages().AddMicrosoftIdentityUI();
-            //    services.AddScoped(typeof(IDespesaRepositorio), typeof(DespesaRepositorio));
-            //    services.AddScoped(typeof(IReceitaRepository), typeof(ReceitaRepository));
-            //    services.AddScoped(typeof(IDemonstrativoFinanceiroRepository), typeof(DemonstrativoFinanceiroRepository));
-            //    services.AddScoped(typeof(IModuloMenuRepository), typeof(ModuloMenuRepository));
+               services.AddRazorPages().AddMicrosoftIdentityUI();
+               services.AddScoped(typeof(IRepositorioDespesa), typeof(RepositorioDespesa));
+               services.AddScoped(typeof(IRepositorioReceita), typeof(RepositorioReceita));
+               services.AddScoped(typeof(IRepositorioModuloMenu), typeof(RepositorioModuloMenu));
 
 
             //// Servicos
