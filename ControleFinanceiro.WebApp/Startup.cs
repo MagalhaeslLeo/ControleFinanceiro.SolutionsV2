@@ -1,6 +1,8 @@
 using ControleFinanceiro.Dominio.Interfaces;
 using ControleFinanceiro.Repositorio.ContextoDB;
 using ControleFinanceiro.Repositorio.Repositórios;
+using ControleFinanceiro.Servicos.Interfaces;
+using ControleFinanceiro.Servicos.Servicos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web.UI;
 
@@ -34,10 +36,9 @@ namespace SouDizimista.WebApp
 
 
             //// Servicos
-            //services.AddScoped(typeof(IDespesaServico), typeof(DespesaServico));
-            //services.AddScoped(typeof(IServiceReceita), typeof(ServiceReceita));
-            //services.AddScoped(typeof(IServiceDemonstrativoFinanceiro), typeof(ServiceDemonstrativoFinanceiro));
-            //services.AddScoped(typeof(IServiceModuloMenu), typeof(ServiceModuloMenu));
+            services.AddScoped(typeof(IServicoDespesa), typeof(ServicoDespesa));
+            services.AddScoped(typeof(IServicoReceita), typeof(ServicoReceita));
+            services.AddScoped(typeof(IServicoModuloMenu), typeof(ServicoModuloMenu));
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
