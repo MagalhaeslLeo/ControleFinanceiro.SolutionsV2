@@ -9,10 +9,10 @@ namespace ControleFinanceiro.Servicos.Interfaces
 {
     public interface IServicoReceita
     {
-        Task<ReceitaVO> AdicionarSalvar(ReceitaVO receitaVO);
+        Task AdicionarSalvar(ReceitaVO receitaVO);
         Task<IEnumerable<ReceitaVO>> ObterTodos();
         Task<ReceitaVO> ObterPorID(Guid Id);
         Task<ReceitaVO> Atualizar(ReceitaVO receitaVO);
-        Task StatusDeletado(ReceitaVO receitaVO);
+        Task StatusDeletado(Guid Id);
     }
 }

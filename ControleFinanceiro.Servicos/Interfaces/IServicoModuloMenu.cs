@@ -9,10 +9,10 @@ namespace ControleFinanceiro.Servicos.Interfaces
 {
     public interface IServicoModuloMenu
     {
-        Task<ModuloMenuVO> AdicionarSalvar(ModuloMenuVO moduloMenuVO);
+        Task AdicionarSalvar(ModuloMenuVO moduloMenuVO);
         Task<IEnumerable<ModuloMenuVO>> ObterTodos();
         Task<ModuloMenuVO> ObterPorID(Guid Id);
         Task<ModuloMenuVO> Atualizar(ModuloMenuVO moduloMenuVO);
-        Task StatusDeletado(ModuloMenuVO moduloMenuVO);
+        Task StatusDeletado(Guid Id);
     }
 }

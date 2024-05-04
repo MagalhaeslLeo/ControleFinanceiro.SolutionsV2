@@ -1,4 +1,7 @@
-﻿using ControleFinanceiro.Servicos.EntidadeServico;
+﻿using AutoMapper;
+using ControleFinanceiro.Dominio.Entidades;
+using ControleFinanceiro.Dominio.Interfaces;
+using ControleFinanceiro.Servicos.EntidadeServico;
 using ControleFinanceiro.Servicos.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,29 +13,86 @@ namespace ControleFinanceiro.Servicos.Servicos
 {
     public class ServicoReceita : IServicoReceita
     {
-        public Task<ReceitaVO> AdicionarSalvar(ReceitaVO receitaVO)
+        protected readonly IMapper mapper;
+        protected readonly IRepositorioReceita repositorioReceita;
+        public ServicoReceita(IMapper mapper, IRepositorioReceita repositorioReceita)
         {
-            throw new NotImplementedException();
+                this.mapper = mapper;
+                this.repositorioReceita= repositorioReceita;
+        }
+        public async Task AdicionarSalvar(ReceitaVO receitaVO)
+        {
+            try
+            {
+                var receitaEntidade = mapper.Map<Receita>(receitaVO);
+                await repositorioReceita.AdicionarSalvar(receitaEntidade);
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task<ReceitaVO> Atualizar(ReceitaVO receitaVO)
+        public async Task<ReceitaVO> Atualizar(ReceitaVO receitaVO)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var converterReceita = mapper.Map<Receita>(receitaVO);
+                await repositorioReceita.Atualizar(converterReceita);
+                var converterReceitaVO = mapper.Map<ReceitaVO>(converterReceita);
+                return converterReceitaVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task<ReceitaVO> ObterPorID(Guid Id)
+        public async Task<ReceitaVO> ObterPorID(Guid Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var receita = await repositorioReceita.ObterPorID(Id);
+                var receitaVO = mapper.Map<ReceitaVO>(Id);
+                return receitaVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task<IEnumerable<ReceitaVO>> ObterTodos()
+        public async Task<IEnumerable<ReceitaVO>> ObterTodos()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var receita = await repositorioReceita.ObterTodos();
+                var receitaVO = mapper.Map<IEnumerable<ReceitaVO>>(receita);
+                return receitaVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task StatusDeletado(ReceitaVO receitaVO)
+        public async Task StatusDeletado(Guid Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var receita = await repositorioReceita.ObterPorID(Id);
+                receita.IsDeleted = true;
+                await repositorioReceita.StatusDeletado(receita);
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
     }
 }

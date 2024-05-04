@@ -1,4 +1,7 @@
-﻿using ControleFinanceiro.Servicos.EntidadeServico;
+﻿using AutoMapper;
+using ControleFinanceiro.Dominio.Entidades;
+using ControleFinanceiro.Dominio.Interfaces;
+using ControleFinanceiro.Servicos.EntidadeServico;
 using ControleFinanceiro.Servicos.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,29 +13,87 @@ namespace ControleFinanceiro.Servicos.Servicos
 {
     public class ServicoModuloMenu : IServicoModuloMenu
     {
-        public Task<ModuloMenuVO> AdicionarSalvar(ModuloMenuVO moduloMenuVO)
+        protected readonly IMapper mapper;
+        protected readonly IRepositorioModuloMenu repositorioModuloMenu;
+        public ServicoModuloMenu(IMapper mapper, IRepositorioModuloMenu repositorioModuloMenu)
         {
-            throw new NotImplementedException();
+            this.mapper = mapper;
+            this.repositorioModuloMenu = repositorioModuloMenu;
+                
+        }
+        public async Task AdicionarSalvar(ModuloMenuVO moduloMenuVO)
+        {
+            try
+            {
+                var moduloMenuEntidade = mapper.Map <ModuloMenu>(moduloMenuVO);
+                await repositorioModuloMenu.AdicionarSalvar(moduloMenuEntidade);
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task<ModuloMenuVO> Atualizar(ModuloMenuVO moduloMenuVO)
+        public async Task<ModuloMenuVO> Atualizar(ModuloMenuVO moduloMenuVO)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var converterModuloMenu = mapper.Map<ModuloMenu>(moduloMenuVO);
+                var moduloMenu = await repositorioModuloMenu.Atualizar(converterModuloMenu);
+                var converterModuloMenuVO = mapper.Map<ModuloMenuVO>(moduloMenu);
+                return converterModuloMenuVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task<ModuloMenuVO> ObterPorID(Guid Id)
+        public async Task<ModuloMenuVO> ObterPorID(Guid Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var moduloMenu = await repositorioModuloMenu.ObterPorID(Id);
+                var moduloMenuVO = mapper.Map<ModuloMenuVO>(moduloMenu);
+                return moduloMenuVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task<IEnumerable<ModuloMenuVO>> ObterTodos()
+        public async Task<IEnumerable<ModuloMenuVO>> ObterTodos()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var moduloMenu = await repositorioModuloMenu.ObterTodos();
+                var moduloMenuVO = mapper.Map<IEnumerable<ModuloMenuVO>>(moduloMenu);
+                return moduloMenuVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
 
-        public Task StatusDeletado(ModuloMenuVO moduloMenuVO)
+        public async Task StatusDeletado(Guid Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var moduloMenu = await repositorioModuloMenu.ObterPorID(Id);
+                moduloMenu.IsDeleted = true;
+                await repositorioModuloMenu.StatusDeletado(moduloMenu);
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
         }
     }
 }
