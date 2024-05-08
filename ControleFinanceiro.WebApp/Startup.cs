@@ -25,7 +25,7 @@ namespace SouDizimista.WebApp
             services.AddControllersWithViews();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddDbContext<Contexto>(options =>
-                   options.UseSqlServer(Configuration.GetConnectionString("Conexao")));
+                   options.UseSqlServer(Configuration.GetConnectionString("Base")));
             services.AddAutoMapper(typeof(Startup));
 
             // Repositorios

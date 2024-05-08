@@ -44,7 +44,7 @@ namespace ControleFinanceiro.WebApp.Controllers
         // GET: DespesaController/Create
         public ActionResult AdicionarDespesa()
         {
-            return View();
+            return PartialView("Views/Despesa/_AdicionarDespesa.cshtml");
         }
 
         // POST: DespesaController/Create

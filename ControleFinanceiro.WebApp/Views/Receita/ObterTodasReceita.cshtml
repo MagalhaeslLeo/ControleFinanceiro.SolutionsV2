@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ControleFinanceiro.Servicos.EntidadeServico.ReceitaVO>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            Receita
+        </h3>
+        <div class="card-adicionar">
+            <a href="@Url.Action("AdicionarReceita", "Receita")" class="icone-adicionar ">
+                <i class="bi bi-plus-square-fill"></i>
+                Adicionar
+            </a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="tabela">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayName("Descrição")
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayName("Data da despesa")
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayName("Valor")
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayName("Ações")
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var despesa in Model)
+                    {
+                        <tr>
+                            <td scope="row">@despesa.Descricao</td>
+                            <td>@despesa.CreatedAt</td>
+                            <td>@despesa.Valor</td>
+                            <td>
+                                <a href="@Url.Action("ObterReceitaPorId","Receita", new {id = despesa.Id})" class="icones-tabela">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="@Url.Action("AdicionarReceita, Receita", new{id = despesa.Id})" class="icones-tabela">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="@Url.Action("StatusDeletado", "Receita", new{id = despesa.Id})" class="icones-tabela">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

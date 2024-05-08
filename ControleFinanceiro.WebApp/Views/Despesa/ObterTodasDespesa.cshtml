@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ControleFinanceiro.Servicos.EntidadeServico.DespesaVO>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            Despesa
+        </h3>
+        <div class="card-adicionar">
+            <a data-target="#createModal" data-toggle="tooltip" data-placement="top" data-original-title="Nova Despesa" data-url="@Url.Action("AdicionarDespesa", "Despesa")" class="icone-adicionar botaoMostrarModal">
+                <i class="bi bi-plus-square-fill"></i>
+                Adicionar
+            </a>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="tabela">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            @Html.DisplayName("Descrição")
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayName("Data da despesa")
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayName("Valor")
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayName("Ações")
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var despesa in Model)
+                    {
+                        <tr>
+                            <td scope="row">@despesa.Descricao</td>
+                            <td>@despesa.CreatedAt</td>
+                            <td>@despesa.Valor</td>
+                            <td>
+                                <a href="@Url.Action("ObterDespesaPorId","Despesa", new {id = despesa.Id})" class="icones-tabela">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="@Url.Action("AdicionarDespesa, Despesa", new{id = despesa.Id})" class="icones-tabela">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="@Url.Action("StatusDeletado", "Despesa", new{id = despesa.Id})" class="icones-tabela">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@await Html.PartialAsync("AdicionarDespesa", new ControleFinanceiro.Servicos.EntidadeServico.DespesaVO())
+<script src="~/js/ModalDespesa.js"></script>
