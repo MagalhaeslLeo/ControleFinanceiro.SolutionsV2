@@ -46,7 +46,7 @@ namespace ControleFinanceiro.WebApp.Controllers
         // GET: ReceitaController/Create
         public ActionResult AdicionarReceita()
         {
-            return View();
+            return PartialView();
         }
 
         // POST: ReceitaController/Create

@@ -9,7 +9,7 @@
             Receita
         </h3>
         <div class="card-adicionar">
-            <a href="@Url.Action("AdicionarReceita", "Receita")" class="icone-adicionar ">
+            <a data-target="#createModal" data-toggle="tooltip" data-placement="top" data-original-title="Nova Receita" data-url="@Url.Action("AdicionarReceita", "Receita")" class="icone-adicionar botaoMostrarModal">
                 <i class="bi bi-plus-square-fill"></i>
                 Adicionar
             </a>
@@ -25,7 +25,7 @@
                             @Html.DisplayName("Descrição")
                         </th>
                         <th scope="col">
-                            @Html.DisplayName("Data da despesa")
+                            @Html.DisplayName("Data da receita")
                         </th>
                         <th scope="col">
                             @Html.DisplayName("Valor")
@@ -36,20 +36,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var despesa in Model)
+                    @foreach (var receita in Model)
                     {
                         <tr>
-                            <td scope="row">@despesa.Descricao</td>
-                            <td>@despesa.CreatedAt</td>
-                            <td>@despesa.Valor</td>
+                            <td scope="row">@receita.Descricao</td>
+                            <td>@receita.CreatedAt</td>
+                            <td>@receita.Valor</td>
                             <td>
-                                <a href="@Url.Action("ObterReceitaPorId","Receita", new {id = despesa.Id})" class="icones-tabela">
+                                <a href="@Url.Action("ObterReceitaPorId","Receita", new {id = receita.Id})" class="icones-tabela">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <a href="@Url.Action("AdicionarReceita, Receita", new{id = despesa.Id})" class="icones-tabela">
+                                <a href="@Url.Action("AdicionarReceita, Receita", new{id = receita.Id})" class="icones-tabela">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="@Url.Action("StatusDeletado", "Receita", new{id = despesa.Id})" class="icones-tabela">
+                                <a href="@Url.Action("StatusDeletado", "Receita", new{id = receita.Id})" class="icones-tabela">
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>
@@ -60,3 +60,5 @@
         </div>
     </div>
 </div>
+@await Html.PartialAsync("AdicionarReceita", new ControleFinanceiro.Servicos.EntidadeServico.ReceitaVO())
+<script src="~/js/ModalTabela.js"></script>
