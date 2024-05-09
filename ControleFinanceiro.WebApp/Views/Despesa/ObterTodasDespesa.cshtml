@@ -43,10 +43,11 @@
                             <td>@despesa.CreatedAt</td>
                             <td>@despesa.Valor</td>
                             <td>
-                                <a href="@Url.Action("ObterDespesaPorId","Despesa", new {id = despesa.Id})" class="icones-tabela">
+                                <a data-target="#consultarModal_@despesa.Id" data-toggle="tooltip" data-placement="top" data-original-title="Consultar Despesa" data-url="@Url.Action("ObterDespesaPorId","Despesa", new {id = despesa.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                <a href="@Url.Action("AdicionarDespesa, Despesa", new{id = despesa.Id})" class="icones-tabela">
+                                @await Html.PartialAsync("ObterDespesaPorId", despesa)
+                                <a  data-url="@Url.Action("AdicionarDespesa, Despesa", new{id = despesa.Id})" class="icones-tabela">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 <a href="@Url.Action("StatusDeletado", "Despesa", new{id = despesa.Id})" class="icones-tabela">

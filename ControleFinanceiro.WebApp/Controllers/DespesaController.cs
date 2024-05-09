@@ -33,7 +33,7 @@ namespace ControleFinanceiro.WebApp.Controllers
             try
             {
                 var despesa = await servicoDespesa.ObterPorID(id);
-                return View(despesa);
+                return PartialView(despesa);
             }
             catch (Exception expection)
             {

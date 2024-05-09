@@ -43,9 +43,10 @@
                             <td>@receita.CreatedAt</td>
                             <td>@receita.Valor</td>
                             <td>
-                                <a href="@Url.Action("ObterReceitaPorId","Receita", new {id = receita.Id})" class="icones-tabela">
+                                <a data-target="#consultarModal_@receita.Id" data-toggle="tooltip" data-placement="top" data-original-title="Consultar Receita" data-url="@Url.Action("ObterReceitaPorId","Receita", new {id = receita.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-eye"></i>
                                 </a>
+                                @await Html.PartialAsync("ObterReceitaPorId", receita)
                                 <a href="@Url.Action("AdicionarReceita, Receita", new{id = receita.Id})" class="icones-tabela">
                                     <i class="bi bi-pencil"></i>
                                 </a>

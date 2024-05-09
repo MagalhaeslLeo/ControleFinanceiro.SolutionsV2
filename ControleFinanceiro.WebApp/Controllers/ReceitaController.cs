@@ -35,7 +35,7 @@ namespace ControleFinanceiro.WebApp.Controllers
             try
             {
                 var receita = await servicoReceita.ObterPorID(id);
-                return View(receita);
+                return PartialView(receita);
             }
             catch (Exception expection)
             {

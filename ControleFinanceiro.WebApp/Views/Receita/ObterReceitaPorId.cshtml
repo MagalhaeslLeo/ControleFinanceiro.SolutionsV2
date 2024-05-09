@@ -1,34 +1,33 @@
-﻿@model ControleFinanceiro.Servicos.EntidadeServico.DespesaVO
+﻿@model ControleFinanceiro.Servicos.EntidadeServico.ReceitaVO
 @{
-    ViewData["Title"] = "AdicionarDespesa";
+    ViewData["Title"] = "ObterReceitaPorId";
 }
-<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+<div class="modal fade" id="consultarModal_@Model.Id" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="container">
                 <div class="row">
-                    <form class="needs-validation" asp-action="AdicionarDespesa">
+                    <form class="needs-validation" asp-action="ObterReceitaPorId">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="modal-header">
-                            <h5 class="title-lable-dizimista"> Criar Despesa </h5>
-                            <a asp-action="ObterTodasDespesa" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                            <h5 class="title-lable-dizimista"> Consultar Receita </h5>
+                            <a asp-action="ObterTodasReceita" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
                             </a>
-                            <hr />
                         </div>
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label asp-for="Descricao" class="control-label title-lable-dizimista">Descrição</label>
-                                    <input asp-for="Descricao" class="form-control" />
+                                    <input asp-for="Descricao" class="form-control" readonly />
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="CreatedAt" class="control-label title-lable-dizimista">Período</label>
-                                    <input asp-for="CreatedAt" class="form-control" />
+                                    <input asp-for="CreatedAt" class="form-control" readonly />
                                     <span asp-validation-for="CreatedAt" class="text-danger"></span>
                                 </div>
                                 <div class="col-md-6">
                                     <label asp-for="Valor" class="control-label title-lable-dizimista">Valor</label>
-                                    <input asp-for="Valor" class="form-control" />
+                                    <input asp-for="Valor" class="form-control" readonly />
                                     <span asp-validation-for="Valor" class="text-danger"></span>
                                 </div>
                             </div>
@@ -39,7 +38,6 @@
 
                                 <div class="form-group form-inline">
                                     <div>
-                                        <input type="submit" value="Salvar" class="btn btn-primary">
                                         <a class=" btn btn-info" data-bs-dismiss="modal">Voltar</a>
                                     </div>
                                 </div>
@@ -51,4 +49,3 @@
         </div>
     </div>
 </div>
-<script src="~/js/ModalTabela.js"></script>
