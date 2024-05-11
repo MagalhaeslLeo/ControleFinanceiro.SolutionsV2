@@ -43,16 +43,29 @@
                             <td>@receita.CreatedAt</td>
                             <td>@receita.Valor</td>
                             <td>
-                                <a data-target="#consultarModal_@receita.Id" data-toggle="tooltip" data-placement="top" data-original-title="Consultar Receita" data-url="@Url.Action("ObterReceitaPorId","Receita", new {id = receita.Id})" class="icones-tabela botaoMostrarModal">
+
+                                <a 
+                                data-target="#consultarModal_@receita.Id" data-toggle="tooltip" data-placement="top" data-original-title="Consultar Receita"
+                                data-url="@Url.Action("ObterReceitaPorId","Receita",
+                                new {id = receita.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                @await Html.PartialAsync("ObterReceitaPorId", receita)
-                                <a href="@Url.Action("AdicionarReceita, Receita", new{id = receita.Id})" class="icones-tabela">
+                                @await Html.PartialAsync("_ConsultarReceita", receita)
+
+                                <a 
+                                data-target="#editarModal_@receita.Id" data-toggle="tooltip" data-placement="top" data-original-title="Editar Receita"
+                                data-url="@Url.Action("AdicionarReceita, Receita",
+                                new{id = receita.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="@Url.Action("StatusDeletado", "Receita", new{id = receita.Id})" class="icones-tabela">
+                                @await Html.PartialAsync("_EditarReceita", receita)
+
+                                <a
+                                    data-target="#deletarModal_@receita.Id" data-toggle="tooltip" data-placement="top" data-original-title="Excluir Receita"
+                                    data-url="@Url.Action("StatusDeletado", "Receita", new{id = receita.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-trash"></i>
                                 </a>
+                                @await Html.PartialAsync("_StatusDeletado", receita)
                             </td>
                         </tr>
                     }
@@ -61,5 +74,5 @@
         </div>
     </div>
 </div>
-@await Html.PartialAsync("AdicionarReceita", new ControleFinanceiro.Servicos.EntidadeServico.ReceitaVO())
+@await Html.PartialAsync("_AdicionarReceita", new ControleFinanceiro.Servicos.EntidadeServico.ReceitaVO())
 <script src="~/js/ModalTabela.js"></script>

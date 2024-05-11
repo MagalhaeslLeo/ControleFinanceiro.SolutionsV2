@@ -35,7 +35,7 @@ namespace ControleFinanceiro.WebApp.Controllers
             try
             {
                 var receita = await servicoReceita.ObterPorID(id);
-                return PartialView(receita);
+                return PartialView("_ConsultarReceita", receita);
             }
             catch (Exception expection)
             {
@@ -46,7 +46,7 @@ namespace ControleFinanceiro.WebApp.Controllers
         // GET: ReceitaController/Create
         public ActionResult AdicionarReceita()
         {
-            return PartialView();
+            return PartialView("_AdicionarReceita");
         }
 
         // POST: ReceitaController/Create

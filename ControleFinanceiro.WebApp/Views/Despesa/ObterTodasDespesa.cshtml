@@ -43,16 +43,26 @@
                             <td>@despesa.CreatedAt</td>
                             <td>@despesa.Valor</td>
                             <td>
-                                <a data-target="#consultarModal_@despesa.Id" data-toggle="tooltip" data-placement="top" data-original-title="Consultar Despesa" data-url="@Url.Action("ObterDespesaPorId","Despesa", new {id = despesa.Id})" class="icones-tabela botaoMostrarModal">
+                                <a data-target="#consultarModal_@despesa.Id" data-toggle="tooltip" data-placement="top"
+                                data-original-title="Consultar Despesa" data-url="@Url.Action("ObterDespesaPorId","Despesa",
+                                new {id = despesa.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                @await Html.PartialAsync("ObterDespesaPorId", despesa)
-                                <a  data-url="@Url.Action("AdicionarDespesa, Despesa", new{id = despesa.Id})" class="icones-tabela">
+                                @await Html.PartialAsync("_ConsultarDespesa", despesa)
+
+                                <a data-target="#editarModal_@despesa.Id" data-toggle="tooltip" data-placement="top"
+                               data-original-title="Editar Despesa" data-url="@Url.Action("AdicionarDespesa, Despesa",
+                               new{id = despesa.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="@Url.Action("StatusDeletado", "Despesa", new{id = despesa.Id})" class="icones-tabela">
+                                @await Html.PartialAsync("_EditarDespesa", despesa)
+
+                                <a data-target="#deletarModal_@despesa.Id" data-toggle="tooltip" data-placement="top"
+                               data-original-title="Editar Despesa" data-url="@Url.Action("StatusDeletado", "Despesa",
+                               new{id = despesa.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-trash"></i>
                                 </a>
+                                @await Html.PartialAsync("_StatusDeletado", despesa)
                             </td>
                         </tr>
                     }
@@ -61,5 +71,4 @@
         </div>
     </div>
 </div>
-@await Html.PartialAsync("AdicionarDespesa", new ControleFinanceiro.Servicos.EntidadeServico.DespesaVO())
-<script src="~/js/ModalDespesa.js"></script>
+@await Html.PartialAsync("_AdicionarDespesa", new ControleFinanceiro.Servicos.EntidadeServico.DespesaVO())

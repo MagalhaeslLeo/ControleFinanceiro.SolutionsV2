@@ -33,7 +33,7 @@ namespace ControleFinanceiro.WebApp.Controllers
             try
             {
                 var despesa = await servicoDespesa.ObterPorID(id);
-                return PartialView(despesa);
+                return PartialView("_ConsultarDespesa", despesa);
             }
             catch (Exception expection)
             {
@@ -44,7 +44,7 @@ namespace ControleFinanceiro.WebApp.Controllers
         // GET: DespesaController/Create
         public ActionResult AdicionarDespesa()
         {
-            return PartialView("Views/Despesa/_AdicionarDespesa.cshtml");
+            return PartialView("_AdicionarDespesa");
         }
 
         // POST: DespesaController/Create
