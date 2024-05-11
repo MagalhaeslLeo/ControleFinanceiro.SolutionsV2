@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleFinanceiro.Repositorio.Repositórios
+namespace ControleFinanceiro.Repositorio.Repositorios
 {
     public class RepositorioReceita : RepositorioBase<Receita>, IRepositorioReceita
     {

@@ -2,7 +2,7 @@
 using ControleFinanceiro.Dominio.Entidades;
 using ControleFinanceiro.Dominio.Interfaces;
 using ControleFinanceiro.Repositorio.ContextoDB;
-using ControleFinanceiro.Repositorio.Repositórios;
+using ControleFinanceiro.Repositorio.Repositorios;
 using ControleFinanceiro.Servicos.EntidadeServico;
 using ControleFinanceiro.Servicos.Interfaces;
 using System;

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleFinanceiro.Repositorio.Repositórios
+namespace ControleFinanceiro.Repositorio.Repositorios
 {
     public class RepositorioBase<T> : IRepositorioBase<T> where T : IDEntidade
     {

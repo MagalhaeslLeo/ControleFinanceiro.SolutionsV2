@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ControleFinanceiro.Repositorio.Repositórios
+namespace ControleFinanceiro.Repositorio.Repositorios
 {
-    public class RepositorioDespesa : RepositorioBase<Despesa>, IRepositorioDespesa
+    public class RepositorioModuloMenu : RepositorioBase<ModuloMenu>, IRepositorioModuloMenu
     {
-        public RepositorioDespesa(Contexto contexto) : base(contexto)
+        public RepositorioModuloMenu(Contexto contexto) : base(contexto)
         {
         }
     }

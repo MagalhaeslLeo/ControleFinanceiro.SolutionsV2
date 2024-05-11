@@ -1,6 +1,6 @@
 using ControleFinanceiro.Dominio.Interfaces;
 using ControleFinanceiro.Repositorio.ContextoDB;
-using ControleFinanceiro.Repositorio.Repositórios;
+using ControleFinanceiro.Repositorio.Repositorios;
 using ControleFinanceiro.Servicos.Interfaces;
 using ControleFinanceiro.Servicos.Servicos;
 using Microsoft.EntityFrameworkCore;
