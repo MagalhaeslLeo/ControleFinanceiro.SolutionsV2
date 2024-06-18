@@ -13,6 +13,20 @@ namespace ControleFinanceiro.WebApp.Controllers
             this.servicoModuloMenu = servicoModuloMenu;
         }
 
+        [HttpGet]
+        public IActionResult FuncionalidadeMenu()
+        {
+            var menuState = HttpContext.Session.GetString("MenuState");
+            return Json(menuState);
+        }
+
+        [HttpPost]
+        public IActionResult DefinirEstadoFuncionalidadeMenu(string menuState)
+        {
+            HttpContext.Session.SetString("MenuState", menuState);
+            return Ok();
+        }
+
         // GET: ModuloMenuController
         public async Task<IActionResult> ObterTodosModuloMenu()
         {
