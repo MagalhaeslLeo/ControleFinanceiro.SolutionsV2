@@ -1,9 +1,9 @@
-﻿$('#modulo-cadastro').click(function () {
-    $('#funcao-cadastro').css("display", "block");
-});
-$('#modulo-adm').click(function () {
-    $('#funcao-administrativo').css("display", "block");
-});
+﻿//$('#modulo-cadastro').click(function () {
+//    $('#funcao-cadastro').css("display", "block");
+//});
+//$('#modulo-adm').click(function () {
+//    $('#funcao-administrativo').css("display", "block");
+//});
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Alterna o display do menu
                 if (menuElement.style.display === 'none') {
                     menuElement.style.display = 'block';
-                } else {
-                    menuElement.style.display = 'none';
-                }
+                } //else {
+                //    menuElement.style.display = 'none';
+                //}
 
                 // Armazena o estado do menu na sessão
                 let menuState = {};
