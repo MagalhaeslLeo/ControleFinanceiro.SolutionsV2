@@ -34,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Alterna o display do menu
                 if (menuElement.style.display === 'none') {
                     menuElement.style.display = 'block';
-                } else {
-                    menuElement.style.display = 'none';
-                }
+                } //else {
+                //    menuElement.style.display = 'none';
+                //}
 
                 // Armazena o estado do menu na sessão
                 let menuState = {};
