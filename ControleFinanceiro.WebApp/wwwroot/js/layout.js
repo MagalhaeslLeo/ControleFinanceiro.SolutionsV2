@@ -1,9 +1,9 @@
-﻿$('#modulo-cadastro').click(function () {
-    $('#funcao-cadastro').css("display", "block");
-});
-$('#modulo-adm').click(function () {
-    $('#funcao-administrativo').css("display", "block");
-});
+﻿//$('#modulo-cadastro').click(function () {
+//    $('#funcao-cadastro').css("display", "block");
+//});
+//$('#modulo-adm').click(function () {
+//    $('#funcao-administrativo').css("display", "block");
+//});
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.menuModulo').forEach(item => {
         item.addEventListener('click', function () {
 
-            let menuId = this.dataset.menuId; // Supondo que você tenha um data-attribute para identificar o menu
+            let menuId = this.dataset.menuId; 
             let menuElement = document.getElementById(menuId);
 
             if (menuElement) {

@@ -2,6 +2,7 @@
 using ControleFinanceiro.Servicos.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace ControleFinanceiro.WebApp.Controllers
 {
@@ -21,9 +22,10 @@ namespace ControleFinanceiro.WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult DefinirEstadoFuncionalidadeMenu(string menuState)
+        public IActionResult DefinirEstadoFuncionalidadeMenu([FromBody] Dictionary<string, string> menuState)
         {
-            HttpContext.Session.SetString("MenuState", menuState);
+            var menuStateJson = JsonSerializer.Serialize(menuState);
+            HttpContext.Session.SetString("MenuState", menuStateJson);
             return Ok();
         }
 
