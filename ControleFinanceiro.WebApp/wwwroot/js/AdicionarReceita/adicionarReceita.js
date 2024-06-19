@@ -5,7 +5,7 @@
     var valor = document.getElementById('valor');
     var periodoAtual = new Date();
     var dia = String(periodoAtual.getDate()).padStart(2, '0');
-    var mes = String(periodoAtual.getMonth() + 1).padStart(2, '0'); 
+    var mes = String(periodoAtual.getMonth() + 1).padStart(2, '0');
     var ano = periodoAtual.getFullYear();
     var hora = periodoAtual.getHours();
     var minutos = periodoAtual.getMinutes();

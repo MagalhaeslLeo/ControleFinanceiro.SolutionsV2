@@ -18,18 +18,19 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label asp-for="Descricao" class="control-label title-lable-dizimista">Descrição</label>
-                                    <input asp-for="Descricao" class="form-control" />
+                                    <label> </label>
+                                    <input asp-for="Descricao" class="form-control" placeholder="Descrição" id="descricao" />
+                                    <div class="invalid-feedback" id="descricaoErro"></div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label asp-for="CreatedAt" class="control-label title-lable-dizimista">Período</label>
-                                    <input asp-for="CreatedAt" class="form-control" />
-                                    <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                                    <label> </label>
+                                    <input asp-for="CreatedAt" class="form-control" id="periodo" />
+                                    <div class="invalid-feedback" id="periodoErro"></div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label asp-for="Valor" class="control-label title-lable-dizimista">Valor</label>
-                                    <input asp-for="Valor" class="form-control" />
-                                    <span asp-validation-for="Valor" class="text-danger"></span>
+                                    <label> </label>
+                                    <input asp-for="Valor" class="form-control" placeholder="Valor" id="valor" />
+                                    <div class="invalid-feedback" id="valorErro"></div>
                                 </div>
                             </div>
                         </div>
@@ -51,4 +52,4 @@
         </div>
     </div>
 </div>
-<script src="~/js/ModalTabela.js"></script>
+<script src="~/js/adicionarreceita/adicionarreceita.js"></script>
