@@ -16,6 +16,7 @@ namespace ControleFinanceiro.Servicos.Mapeamentos
             CreateMap<DespesaVO, Despesa>().ReverseMap();
             CreateMap<ReceitaVO, Receita>().ReverseMap();
             CreateMap<ModuloMenuVO, ModuloMenu>().ReverseMap();
+            CreateMap<UsuarioVO, Usuario>().ReverseMap();
         }
     }
 }
