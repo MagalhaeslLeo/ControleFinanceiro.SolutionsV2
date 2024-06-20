@@ -1,4 +1,9 @@
-﻿<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 aside-menu" data-bs-toggle="collapse">
+﻿<div id="spinner" class="spinner-overlay d-none">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+    </div>
+</div>
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 aside-menu" data-bs-toggle="collapse">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white">
 
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="modulos-funcionalidades">
@@ -13,13 +18,13 @@
                 </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="@Url.Action("ObterTodasDespesa","Despesa")" class="nav-link px-0">
+                        <a href="@Url.Action("ObterTodasDespesa","Despesa")" class="nav-link spinner-funcionalidade px-0">
                             <i class="fs-4 bi bi-coin"></i>
                             <span class="d-none d-sm-inline">Despesa</span>
                         </a>
                     </li>
                     <li>
-                        <a href="@Url.Action("ObterTodasReceita","Receita")" class="nav-link px-0">
+                        <a href="@Url.Action("ObterTodasReceita","Receita")" class="nav-link spinner-funcionalidade px-0">
                             <i class="fs-4 bi bi-piggy-bank-fill"></i>
                             <span class="d-none d-sm-inline">Receita</span>
                         </a>
@@ -33,13 +38,13 @@
                 </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="#" class="nav-link px-0">
+                        <a href="#" class="nav-link spinner-funcionalidade px-0">
                             <i class="fs-4 bi bi-people-fill"></i>
                             <span class="d-none d-sm-inline">Usuários</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-0">
+                        <a href="#" class="nav-link spinner-funcionalidade px-0">
                             <i class="fs-4 bi bi bi-shield-lock"></i>
                             <span class="d-none d-sm-inline">Permissões</span>
                         </a>
@@ -50,3 +55,17 @@
         <hr>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        var navLinks = document.querySelectorAll("a.spinner-funcionalidade");
+        navLinks.forEach(function(link){
+            link.addEventListener('click', function(){
+                document.getElementById('spinner').classList.remove('d-none')
+            });
+        });
+        window.addEventListener('load', function(){
+            document.getElementById('spinner').classList.add('d-none')
+        });
+    });
+</script>
