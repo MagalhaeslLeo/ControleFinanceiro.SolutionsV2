@@ -9,6 +9,7 @@ namespace ControleFinanceiro.Repositorio.ContextoDB
         public DbSet<Receita> Receita { get; set; }
         public DbSet<Despesa> Despesa { get; set; }
         public DbSet<ModuloMenu> ModuloMenu { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
         public Contexto(DbContextOptions options) : base(options) { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
