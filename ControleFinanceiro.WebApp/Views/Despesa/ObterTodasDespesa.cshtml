@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<ControleFinanceiro.Servicos.EntidadeServico.DespesaVO>
 @{
     ViewData["Title"] = "Home Page";
+    var totalDespesa = Model.Sum(d => d.Valor);
 }
 
 <div class="card">
@@ -41,7 +42,7 @@
                         <tr>
                             <td scope="row">@despesa.Descricao</td>
                             <td>@despesa.CreatedAt</td>
-                            <td>@despesa.Valor</td>
+                            <td>R$ @despesa.Valor</td>
                             <td>
                                 <a data-target="#consultarModal_@despesa.Id" data-toggle="tooltip" data-placement="top"
                                 data-original-title="Consultar Despesa" data-url="@Url.Action("ObterDespesaPorId","Despesa",
@@ -66,6 +67,11 @@
                             </td>
                         </tr>
                     }
+                    <tr>
+                        <td colspan="2" class="text-right"><strong>Total de despesas:</strong></td>
+                        <td><strong>R$ @totalDespesa</strong></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
