@@ -1,7 +1,8 @@
-﻿@model IEnumerable<ControleFinanceiro.Servicos.EntidadeServico.DespesaVO>
+﻿@using X.PagedList.Mvc.Core
+@model ControleFinanceiro.Servicos.ViewModel.PaginacaoViewModel
 @{
     ViewData["Title"] = "Home Page";
-    var totalDespesa = Model.Sum(d => d.Valor);
+    decimal totalDespesa = 0;
 }
 
 <div class="card">
@@ -37,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(var despesa in Model)
+                    @foreach(var despesa in Model.Despesas)
                     {
                         <tr>
                             <td scope="row">@despesa.Descricao</td>
@@ -66,6 +67,7 @@
                                 @await Html.PartialAsync("_StatusDeletado", despesa)
                             </td>
                         </tr>
+                        totalDespesa = Model.TotalDespesa;
                     }
                     <tr>
                         <td colspan="2" class="text-right"><strong>Total de despesas:</strong></td>
@@ -74,6 +76,23 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <!-- Controles de paginação -->
+        <div class="d-flex justify-content-end">
+            @Html.PagedListPager(Model.Despesas, page => Url.Action("ObterTodasDespesa", new { page }), new PagedListRenderOptions
+            {
+            UlElementClasses = new[] { "pagination" },
+            LiElementClasses = new[] { "page-item" },
+            PageClasses = new[] { "page-link" },
+            LinkToPreviousPageFormat = "Anterior",
+            LinkToNextPageFormat = "Próximo",
+            LinkToFirstPageFormat = "Primeiro",
+            LinkToLastPageFormat = "Último",
+            DisplayLinkToFirstPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded,
+            DisplayLinkToNextPage = PagedListDisplayMode.IfNeeded
+            })
         </div>
     </div>
 </div>
