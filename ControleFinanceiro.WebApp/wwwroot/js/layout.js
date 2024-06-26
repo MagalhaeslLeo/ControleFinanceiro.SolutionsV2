@@ -1,14 +1,14 @@
-﻿//$('#modulo-cadastro').click(function () {
-//    $('#funcao-cadastro').css("display", "block");
-//});
-//$('#modulo-adm').click(function () {
-//    $('#funcao-administrativo').css("display", "block");
-//});
+﻿//Obtém a URL Base da aplicação pelo layout ou por uma página específica
+var urlBaseElement = document.querySelector('meta[name=base-url]');
+var urlBaseId = document.getElementById('base-url');
+var urlBaseContent = urlBaseElement ? urlBaseElement.getAttribute('content') ||
+    urlBaseId.getAttribute('data-base-url') : '';
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
     // Função para recuperar o estado do menu e aplicar
-    fetch('/ModuloMenu/FuncionalidadeMenu')
+    fetch(urlBaseContent + 'ModuloMenu/FuncionalidadeMenu')
         .then(response => response.json())
         .then(data => {
             if (data) {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     menuState[menu.id] = menu.style.display;
                 });
 
-                fetch('/ModuloMenu/DefinirEstadoFuncionalidadeMenu', {
+                fetch(urlBaseContent + 'ModuloMenu/DefinirEstadoFuncionalidadeMenu', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
