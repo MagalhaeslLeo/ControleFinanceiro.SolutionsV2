@@ -1,7 +1,9 @@
 ﻿using ControleFinanceiro.Servicos.EntidadeServico;
 using ControleFinanceiro.Servicos.Interfaces;
+using ControleFinanceiro.Servicos.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace ControleFinanceiro.WebApp.Controllers
 {
@@ -14,12 +16,22 @@ namespace ControleFinanceiro.WebApp.Controllers
         }
 
         // GET: ReceitaController
-        public async Task <IActionResult> ObterTodasReceita()
+        public async Task <IActionResult> ObterTodasReceita(int? page)
         {
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
             try
             {
                 var listaReceita = await servicoReceita.ObterTodos();
-                return View(listaReceita);
+                var receitasPaginadas = listaReceita.ToPagedList(pageNumber, pageSize);
+
+                var receitasPaginadasViewModel = new PaginacaoViewModel
+                {
+                    Receitas = receitasPaginadas,
+                    TotalReceita = listaReceita.Sum(r=>r.Valor)
+                };
+                return View(receitasPaginadasViewModel);
             }
             catch (Exception expection)
             {
