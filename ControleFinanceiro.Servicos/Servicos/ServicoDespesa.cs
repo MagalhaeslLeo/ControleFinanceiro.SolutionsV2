@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ControleFinanceiro.Dominio.Entidades;
+using ControleFinanceiro.Dominio.Enum.DemonstrativoFinanceiro;
 using ControleFinanceiro.Dominio.Interfaces;
 using ControleFinanceiro.Repositorio.ContextoDB;
 using ControleFinanceiro.Repositorio.Repositorios;
@@ -17,17 +18,33 @@ namespace ControleFinanceiro.Servicos.Servicos
     {
         protected readonly IMapper mapper;
         protected readonly IRepositorioDespesa repositorioDespesa;
-        public ServicoDespesa(IMapper mapper, IRepositorioDespesa repositorioDespesa)
+        protected readonly IRepositorioDemonstrativoFinanceiro repositorioDemonstrativoFinanceiro;
+        public ServicoDespesa(IMapper mapper, IRepositorioDespesa repositorioDespesa,
+            IRepositorioDemonstrativoFinanceiro repositorioDemonstrativoFinanceiro)
         {
                 this.mapper = mapper;
                 this.repositorioDespesa = repositorioDespesa;
+                this.repositorioDemonstrativoFinanceiro = repositorioDemonstrativoFinanceiro;
         }
         public async Task AdicionarSalvar(DespesaVO despesaVO)
         {
             try
             {
                 var despesaEntidade = mapper.Map<Despesa>(despesaVO);
+                if(despesaEntidade.Id == Guid.Empty)
+                {
+                    despesaEntidade.Id= Guid.NewGuid();
+                }
                 await repositorioDespesa.AdicionarSalvar(despesaEntidade);
+                DemonstrativoFinanceiro demonstrativoFinanceiro = new DemonstrativoFinanceiro
+                {
+                    IDDespesa = despesaEntidade.Id,
+                    CreatedAt = despesaEntidade.CreatedAt,
+                    Resultado = despesaVO.Valor,
+                    TipoDemonstrativo = TipoDemonstrativo.Despesa
+                };
+                await repositorioDemonstrativoFinanceiro.AdicionarSalvar(demonstrativoFinanceiro);
+
             }
             catch (Exception expection)
             {

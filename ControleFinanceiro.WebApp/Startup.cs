@@ -33,12 +33,14 @@ namespace SouDizimista.WebApp
                services.AddScoped(typeof(IRepositorioDespesa), typeof(RepositorioDespesa));
                services.AddScoped(typeof(IRepositorioReceita), typeof(RepositorioReceita));
                services.AddScoped(typeof(IRepositorioModuloMenu), typeof(RepositorioModuloMenu));
+               services.AddScoped(typeof(IRepositorioDemonstrativoFinanceiro), typeof(RepositorioDemonstrativoFinanceiro));
 
 
             //// Servicos
             services.AddScoped(typeof(IServicoDespesa), typeof(ServicoDespesa));
             services.AddScoped(typeof(IServicoReceita), typeof(ServicoReceita));
             services.AddScoped(typeof(IServicoModuloMenu), typeof(ServicoModuloMenu));
+            services.AddScoped(typeof(IServicoDemonstrativoFinanceiro), typeof(ServicoDemonstrativoFinanceiro));
 
             // Adicionar suporte à sessão
             services.AddDistributedMemoryCache();
