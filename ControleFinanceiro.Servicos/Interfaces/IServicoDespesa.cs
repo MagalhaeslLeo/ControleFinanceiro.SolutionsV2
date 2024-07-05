@@ -14,5 +14,6 @@ namespace ControleFinanceiro.Servicos.Interfaces
         Task<DespesaVO> ObterPorID(Guid Id);
         Task<DespesaVO> Atualizar(DespesaVO despesaVO);
         Task StatusDeletado(Guid Id);
+        Task<IEnumerable<DespesaVO>> RelatorioGeralDespesa();
     }
 }
