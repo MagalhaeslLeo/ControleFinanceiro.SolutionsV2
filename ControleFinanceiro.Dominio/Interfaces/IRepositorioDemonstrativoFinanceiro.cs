@@ -9,6 +9,6 @@ namespace ControleFinanceiro.Dominio.Interfaces
 {
     public interface IRepositorioDemonstrativoFinanceiro : IRepositorioBase<DemonstrativoFinanceiro>
     {
-        Task <IEnumerable<Despesa>> RelatorioGeralDespesa();
+        Task <IEnumerable<DemonstrativoFinanceiro>> RelatorioGeralDespesa();
     }
 }

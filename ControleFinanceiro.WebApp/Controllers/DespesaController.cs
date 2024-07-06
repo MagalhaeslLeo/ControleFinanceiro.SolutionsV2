@@ -16,12 +16,6 @@ namespace ControleFinanceiro.WebApp.Controllers
             this.servicoDespesa = servicoDespesa;
         }
         // GET: DespesaController
-
-        public async Task<IActionResult> ObterTodosRelatorioDespesa()
-        {
-            var teste = await servicoDespesa.RelatorioGeralDespesa();
-            return View(teste);
-        }
         public async Task<IActionResult> ObterTodasDespesa(int? page)
         {
             int pageSize = 5; //Define tamanho da página pelo número de despesas

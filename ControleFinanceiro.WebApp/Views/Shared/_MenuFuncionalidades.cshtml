@@ -20,7 +20,7 @@
                 </a>
                 <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                     <li class="w-100">
-                        <a href="@Url.Action("ObterTodosRelatorioDespesa","Despesa")" class="nav-link spinner-funcionalidade px-0">
+                        <a href="@Url.Action("ObterTodasDespesa","Despesa")" class="nav-link spinner-funcionalidade px-0">
                             <i class="fs-4 bi bi-coin"></i>
                             <span class="d-none d-sm-inline">Despesa</span>
                         </a>
@@ -49,6 +49,19 @@
                         <a href="#" class="nav-link spinner-funcionalidade px-0">
                             <i class="fs-4 bi bi bi-shield-lock"></i>
                             <span class="d-none d-sm-inline">Permissões</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li style="display:none;" class="habilitar-cadastro menu-content" id="controladoria">
+                <a href="#submenu4" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi bi-activity"></i> <span class="ms-1 d-none d-sm-inline">Controladoria</span>
+                </a>
+                <ul class="collapse nav flex-column ms-1" id="submenu4" data-bs-parent="#menu">
+                    <li>
+                        <a href="@Url.Action("ObterTodosRelatorioDespesa","DemonstrativoFinanceiro")" class="nav-link spinner-funcionalidade px-0">
+                            <i class="fs-4 bi bi-bank"></i>
+                            <span class="d-none d-sm-inline">Demonstrativo Financeiro</span>
                         </a>
                     </li>
                 </ul>

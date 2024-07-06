@@ -101,21 +101,6 @@ namespace ControleFinanceiro.Servicos.Servicos
             }
         }
 
-        public async Task<IEnumerable<DespesaVO>> RelatorioGeralDespesa()
-        {
-            try
-            {
-                var despesa = await repositorioDemonstrativoFinanceiro.RelatorioGeralDespesa();
-                var despesaVO = mapper.Map<IEnumerable<DespesaVO>>(despesa);
-                return despesaVO;
-            }
-            catch (Exception expection)
-            {
-
-                throw new Exception(expection.Message, expection);
-            }
-        }
-
         public async Task StatusDeletado(Guid Id)
         {
             try

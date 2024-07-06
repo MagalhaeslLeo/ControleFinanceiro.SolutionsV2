@@ -15,6 +15,7 @@ namespace ControleFinanceiro.Servicos.Interfaces
         Task<DemonstrativoFinanceiroVO> ObterPorID(Guid Id);
         Task<DemonstrativoFinanceiroVO> Atualizar(DemonstrativoFinanceiroVO demonstrativoFinanceiroVO);
         Task StatusDeletado(Guid Id);
-        
+        Task<IEnumerable<DemonstrativoFinanceiroVO>> RelatorioGeralDespesa();
+
     }
 }

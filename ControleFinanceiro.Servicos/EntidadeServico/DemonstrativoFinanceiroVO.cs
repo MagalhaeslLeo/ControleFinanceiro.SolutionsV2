@@ -13,8 +13,7 @@ namespace ControleFinanceiro.Servicos.EntidadeServico
         public DateTime CreatedAt { get; set; }
         public decimal Resultado { get; set; }
 
-        //public Guid IDReceita { get; set; }
-        //public Guid IDDespesa { get; set; }
+        public decimal SomatorioGeral { get; set; }
 
 
         public ReceitaVO Receita { get; set; }
