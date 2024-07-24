@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Controle Financeiro </title>
+    <link rel="icon" type="image/x-icon" href="@(Url.Content(""))" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/font.css" asp-append-version="true" />
+    <link href="~/css/login/login.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class="full-height">
+        <div class="form-container text-center">
+            <div class="vertical-aling-out">
+                <div class="vertical-aling-inner">
+                    <form asp-controller="Login" asp-action="Login">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img class="img-login" src="@Url.Content("~/assets/tty_logo_mini.webp")" alt="Logo" />
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label></label>
+                                    <input id="email" class="form-control" type="email" name="email" placeholder="E-mail" required />
+                                    <span class="text-danger" id="emailError"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label> </label>
+                                    <input id="password" class="mat-form-field form-control" type="text" name="password" placeholder="Senha" required />
+                                    <span class="text-danger" id="nameError"></span>
+                                </div>
+                            </div>
+                            <div style="margin-top: 16px;" class="col-md-12">
+                                <button type="submit" class="btn btn-primary">
+                                    Entrar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            nameInput.addEventListener('input', validateName);
+            emailInput.addEventListener('input', validateEmail);
+
+            function validateName() {
+                const nameError = document.getElementById('nameError');
+                if (!nameInput.value) {
+                    nameError.textContent = 'Informe um nome';
+                } else if (nameInput.value.length < 6) {
+                    nameError.textContent = 'Informe um nome com pelo menos 6 caracteres';
+                } else {
+                    nameError.textContent = '';
+                }
+            }
+
+            function validateEmail() {
+                const emailError = document.getElementById('emailError');
+                if (!emailInput.value) {
+                    emailError.textContent = 'Informe um email';
+                } else if (!emailInput.checkValidity()) {
+                    emailError.textContent = 'Informe um email válido';
+                } else {
+                    emailError.textContent = '';
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

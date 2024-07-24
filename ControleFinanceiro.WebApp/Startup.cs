@@ -3,6 +3,7 @@ using ControleFinanceiro.Repositorio.ContextoDB;
 using ControleFinanceiro.Repositorio.Repositorios;
 using ControleFinanceiro.Servicos.Interfaces;
 using ControleFinanceiro.Servicos.Servicos;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web.UI;
 
@@ -34,6 +35,7 @@ namespace SouDizimista.WebApp
                services.AddScoped(typeof(IRepositorioReceita), typeof(RepositorioReceita));
                services.AddScoped(typeof(IRepositorioModuloMenu), typeof(RepositorioModuloMenu));
                services.AddScoped(typeof(IRepositorioDemonstrativoFinanceiro), typeof(RepositorioDemonstrativoFinanceiro));
+               services.AddScoped(typeof(IRepositorioUsuario), typeof(RepositorioUsuario));
 
 
             //// Servicos
@@ -41,6 +43,7 @@ namespace SouDizimista.WebApp
             services.AddScoped(typeof(IServicoReceita), typeof(ServicoReceita));
             services.AddScoped(typeof(IServicoModuloMenu), typeof(ServicoModuloMenu));
             services.AddScoped(typeof(IServicoDemonstrativoFinanceiro), typeof(ServicoDemonstrativoFinanceiro));
+            services.AddScoped(typeof(IServicoUsuario), typeof(ServicoUsuario));
 
             // Adicionar suporte à sessão
             services.AddDistributedMemoryCache();
@@ -48,6 +51,22 @@ namespace SouDizimista.WebApp
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
                 options.Cookie.HttpOnly= true;
                 options.Cookie.IsEssential= true;
+            });
+
+            //Autenticação com cookies
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                 options.LoginPath= "/Login/Login";
+                 options.AccessDeniedPath= "/Login/Login";
+                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+            });
+
+            //Política de autorização
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequiredLoggedIn", policy =>
+                policy.RequireAuthenticatedUser());
             });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
