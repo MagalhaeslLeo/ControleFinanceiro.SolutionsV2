@@ -14,5 +14,6 @@ namespace ControleFinanceiro.Servicos.Interfaces
         Task<UsuarioVO> ObterPorID(Guid Id);
         Task<UsuarioVO> Atualizar(UsuarioVO usuarioVO);
         Task StatusDeletado(Guid Id);
+        Task<UsuarioVO> ObterUsuarioPorEmailSenha(string email, string senha);
     }
 }

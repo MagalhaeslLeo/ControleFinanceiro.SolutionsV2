@@ -8,7 +8,7 @@ namespace ControleFinanceiro.Servicos.EntidadeServico
 {
     public class UsuarioVO
     {
-        public Guid IDUsuario { get; set; }
+        public Guid Id { get; set; }
         public string NomeUsuario { get; set; }
         public string EmailUsuario { get; set; }
         public string SenhaUsuario { get; set; }
