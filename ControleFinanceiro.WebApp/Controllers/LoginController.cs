@@ -27,18 +27,16 @@ namespace ControleFinanceiro.WebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string emailUsuario, string senha) 
+        public async Task<IActionResult> Login(string email, string senha) 
         {
-            //var usuario = servicoUsuario.ObterPorID(Guid.NewGuid());
-
-            var usuario = new UsuarioVO();
+            var usuario = await servicoUsuario.ObterUsuarioPorEmailSenha(email, senha);
 
             string token = GeradorToken(usuario);
 
             //Define o Token em cookie de autenticação
             var claims = new List<Claim> 
             {
-               new Claim("idUsuario", usuario.IDUsuario.ToString()),
+               new Claim("id", usuario.Id.ToString()),
                new Claim(ClaimTypes.Name, usuario.NomeUsuario),
                new Claim("email", usuario.EmailUsuario) 
             };
@@ -64,7 +62,7 @@ namespace ControleFinanceiro.WebApp.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim("idUsuario", usuarioVO.IDUsuario.ToString()),
+                    new Claim("id", usuarioVO.Id.ToString()),
                     new Claim("nomeUsuario", usuarioVO.NomeUsuario),
                     new Claim("email", usuarioVO.EmailUsuario)
                 }),

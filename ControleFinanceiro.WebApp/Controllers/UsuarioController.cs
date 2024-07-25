@@ -57,7 +57,7 @@ namespace ControleFinanceiro.WebApp.Controllers
         {
             try
             {
-                if (usuarioVO.IDUsuario == Guid.Empty)
+                if (usuarioVO.Id == Guid.Empty)
                 {
                     await servicoUsuario.AdicionarSalvar(usuarioVO);
                 }

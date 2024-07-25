@@ -83,6 +83,24 @@ namespace ControleFinanceiro.Servicos.Servicos
                 throw new Exception(expection.Message, expection);
             }
         }
+        public async Task<UsuarioVO> ObterUsuarioPorEmailSenha(string email, string senha)
+        {
+            try
+            {
+                var usuarioVO = await repositorioUsuario.ObterUsuarioPorEmailSenha(email, senha);
+                if (usuarioVO == null)
+                {
+                    throw (new Exception("Usuario inexistente"));
+                }
+                var converterUsuarioVO = mapper.Map<UsuarioVO>(usuarioVO);
+                return converterUsuarioVO;
+            }
+            catch (Exception expection)
+            {
+
+                throw new Exception(expection.Message, expection);
+            }
+        }
 
         public async Task StatusDeletado(Guid Id)
         {
