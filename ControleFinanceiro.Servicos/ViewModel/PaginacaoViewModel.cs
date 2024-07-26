@@ -12,6 +12,7 @@ namespace ControleFinanceiro.Servicos.ViewModel
     {
         public IPagedList<DespesaVO> Despesas { get; set; }
         public IPagedList<ReceitaVO> Receitas { get; set; }
+        public IPagedList<UsuarioVO> Usuarios { get; set; }
         public decimal TotalDespesa { get; set; }
         public decimal TotalReceita { get; set;}
     }

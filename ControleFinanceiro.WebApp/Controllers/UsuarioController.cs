@@ -1,7 +1,10 @@
 ﻿using ControleFinanceiro.Servicos.EntidadeServico;
 using ControleFinanceiro.Servicos.Interfaces;
+using ControleFinanceiro.Servicos.Servicos;
+using ControleFinanceiro.Servicos.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using X.PagedList;
 
 namespace ControleFinanceiro.WebApp.Controllers
 {
@@ -14,16 +17,25 @@ namespace ControleFinanceiro.WebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ObterTodosUsuarios()
+        public async Task<IActionResult> ObterTodosUsuarios(int? page)
         {
+            int pageSize = 5; //Define tamanho da página pelo número de despesas
+            int pageNumber = (page ?? 1); //Se page for nulo, pageNumber será sempre 1
+
             try
             {
-                var listaUsuarios = await servicoUsuario.ObterTodos();
-                return View(listaUsuarios);
+                var listaUsuario = await servicoUsuario.ObterTodos();
+                var usuariosPaginados = listaUsuario.ToPagedList(pageNumber, pageSize);
+
+                var usuariosPaginadasViewModel = new PaginacaoViewModel
+                {
+                    Usuarios = usuariosPaginados
+                };
+
+                return View(usuariosPaginadasViewModel);
             }
             catch (Exception expection)
             {
-
                 throw new Exception(expection.Message, expection);
             }
 
