@@ -90,6 +90,7 @@ namespace SouDizimista.WebApp
             //Adicionar suporte à sessão antes de UsingAuthorization
             app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
