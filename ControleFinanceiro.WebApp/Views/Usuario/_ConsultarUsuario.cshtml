@@ -1,0 +1,51 @@
+﻿@model ControleFinanceiro.Servicos.EntidadeServico.UsuarioVO
+@{
+    ViewData["Title"] = "ObterUsuarioPorId";
+}
+<div class="modal fade" id="consultarModal_@Model.Id" tabindex="-1" role="dialog" aria-labelledby="consultarModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <form class="needs-validation" asp-action="ObterUsuarioPorId">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="modal-header">
+                            <h5 class="title-lable-dizimista"> Consultar Usuario </h5>
+                            <a asp-action="ObterTodosUsuarios" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                            </a>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label asp-for="NomeUsuario" class="control-label title-lable-dizimista">Nome</label>
+                                    <input asp-for="NomeUsuario" class="form-control" readonly />
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="EmailUsuario" class="control-label title-lable-dizimista">E-mail</label>
+                                    <input asp-for="EmailUsuario" class="form-control" readonly />
+                                    <span asp-validation-for="EmailUsuario" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="SenhaUsuario" class="control-label title-lable-dizimista">Senha</label>
+                                    <input asp-for="SenhaUsuario" class="form-control" readonly />
+                                    <span asp-validation-for="SenhaUsuario" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <hr />
+                            <div>
+
+                                <div class="form-group form-inline">
+                                    <div>
+                                        <a class=" btn btn-info" data-bs-dismiss="modal">Voltar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -47,7 +47,7 @@ namespace ControleFinanceiro.WebApp.Controllers
             try
             {
                 var usuario = await servicoUsuario.ObterPorID(id);
-                return View(usuario);
+                return PartialView(usuario);
             }
             catch (Exception expection)
             {

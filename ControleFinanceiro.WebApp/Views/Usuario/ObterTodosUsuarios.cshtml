@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
-            Despesa
+            Usuário
         </h3>
         <div class="card-adicionar">
             <a data-target="#createModal" data-toggle="tooltip" data-placement="top" data-original-title="Nova Despesa" data-url="@Url.Action("AdicionarUsuario", "Usuario")" class="icone-adicionar botaoMostrarModal">
@@ -49,14 +49,14 @@
                                 new {id = usuario.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-eye"></i>
                                 </a>
-                                @await Html.PartialAsync("_ConsultarDespesa", usuario)
+                                @await Html.PartialAsync("_ConsultarUsuario", usuario)
 
                                 <a data-target="#editarModal_@usuario.Id" data-toggle="tooltip" data-placement="top"
                                data-original-title="Editar Usuario" data-url="@Url.Action("AdicionarUsuario, Usuario",
                                new{id = usuario.Id})" class="icones-tabela botaoMostrarModal">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                @await Html.PartialAsync("_EditarDespesa", usuario)
+                                @await Html.PartialAsync("_EditarUsuario", usuario)
 
                                 <a data-target="#deletarModal_@usuario.Id" data-toggle="tooltip" data-placement="top"
                                data-original-title="Editar Usuario" data-url="@Url.Action("StatusDeletado", "Usuario",
@@ -89,4 +89,4 @@
         </div>
     </div>
 </div>
-@await Html.PartialAsync("_AdicionarDespesa", new ControleFinanceiro.Servicos.EntidadeServico.UsuarioVO())
+@await Html.PartialAsync("_AdicionarUsuario", new ControleFinanceiro.Servicos.EntidadeServico.UsuarioVO())

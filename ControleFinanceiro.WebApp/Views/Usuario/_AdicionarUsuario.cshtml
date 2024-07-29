@@ -1,0 +1,54 @@
+﻿@model ControleFinanceiro.Servicos.EntidadeServico.UsuarioVO
+@{
+    ViewData["Title"] = "AdicionarUsuario";
+}
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="container">
+                <div class="row">
+                    <form id="frmUsuario" class="needs-validation" asp-action="AdicionarUsuario">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="modal-header">
+                            <h5 class="title-lable-dizimista"> Cadastrar Usuario </h5>
+                            <a asp-action="ObterTodosUsuarios" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+                            </a>
+                            <hr />
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label> </label>
+                                    <input asp-for="NomeUsuario" class="form-control" placeholder="Nome" id="nome" />
+                                    <div class="invalid-feedback" id="nomeErro"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label> </label>
+                                    <input asp-for="EmailUsuario" class="form-control obterDespesaReceita" id="email" />
+                                    <div class="invalid-feedback" id="emailErro"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label> </label>
+                                    <input asp-for="SenhaUsuario" class="form-control" placeholder="Valor" id="senha" />
+                                    <div class="invalid-feedback" id="senhaErro"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <hr />
+                            <div>
+
+                                <div class="form-group form-inline">
+                                    <div>
+                                        <input id="submitButton" type="submit" value="Salvar" class="btn btn-primary" disabled>
+                                        <a class=" btn btn-info" data-bs-dismiss="modal">Voltar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
