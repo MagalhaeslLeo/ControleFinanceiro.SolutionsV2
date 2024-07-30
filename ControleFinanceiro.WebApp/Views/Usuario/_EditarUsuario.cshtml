@@ -10,7 +10,7 @@
                     <form id="frmEditar" class="needs-validation editar-usuario" asp-action="AdicionarUsuario">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="modal-header">
-                            <h5 class="title-lable-dizimista"> Editar Usuario </h5>
+                            <h5 class="title-lable-dizimista"> Editar Usuário </h5>
                             <a asp-action="ObterTodosUsuarios" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
                             </a>
                             <hr />
@@ -24,12 +24,12 @@
 
                                 <div class="col-md-6">
                                     <label> </label>
-                                    <input asp-for="NomeUsuario" class="form-control" placeholder="NomeUsuario" id="nomeEditar" />
+                                    <input asp-for="NomeUsuario" class="form-control" placeholder="Nome" id="nomeEditar" />
                                     <div class="invalid-feedback" id="nomeErroEditar"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label> </label>
-                                    <input asp-for="EmailUsuario" class="form-control obterDespesaReceita" id="emailEditar" />
+                                    <input asp-for="EmailUsuario" class="form-control" placeholder="E-mail" id="emailEditar" />
                                     <div class="invalid-feedback" id="emailErroEditar"></div>
                                 </div>
                                 <div class="col-md-6">
@@ -57,3 +57,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/adicionarusuario/editarusuario.js"></script>

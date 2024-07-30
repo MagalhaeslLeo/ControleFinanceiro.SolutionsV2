@@ -69,6 +69,9 @@ namespace ControleFinanceiro.WebApp.Controllers
         {
             try
             {
+                usuarioVO.CreatedAt = DateTime.Now;
+                usuarioVO.IsDeleted = false;
+
                 if (usuarioVO.Id == Guid.Empty)
                 {
                     await servicoUsuario.AdicionarSalvar(usuarioVO);

@@ -19,7 +19,7 @@
     periodo.addEventListener('blur', validacaoPeriodo);
 
     function atualizarSubmitButton() {
-        submitButton.disabled = !(validacaoDescricao() && validacaoValor && validacaoPeriodo());
+        submitButton.disabled = !(validacaoDescricao() && validacaoValor() && validacaoPeriodo());
     };
 
     descricao.addEventListener('input', atualizarSubmitButton);

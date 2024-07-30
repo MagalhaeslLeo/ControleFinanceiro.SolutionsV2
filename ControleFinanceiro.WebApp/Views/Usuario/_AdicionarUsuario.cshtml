@@ -10,7 +10,7 @@
                     <form id="frmUsuario" class="needs-validation" asp-action="AdicionarUsuario">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="modal-header">
-                            <h5 class="title-lable-dizimista"> Cadastrar Usuario </h5>
+                            <h5 class="title-lable-dizimista"> Cadastrar Usuário </h5>
                             <a asp-action="ObterTodosUsuarios" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
                             </a>
                             <hr />
@@ -19,17 +19,17 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label> </label>
-                                    <input asp-for="NomeUsuario" class="form-control" placeholder="Nome" id="nome" />
+                                    <input asp-for="NomeUsuario" class="form-control" placeholder="Nome" id="nomeUsuario" required />
                                     <div class="invalid-feedback" id="nomeErro"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label> </label>
-                                    <input asp-for="EmailUsuario" class="form-control obterDespesaReceita" id="email" />
+                                    <input asp-for="EmailUsuario" class="form-control" type="email" placeholder="E-mail" id="emailUsuario" required />
                                     <div class="invalid-feedback" id="emailErro"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label> </label>
-                                    <input asp-for="SenhaUsuario" class="form-control" placeholder="Valor" id="senha" />
+                                    <input asp-for="SenhaUsuario" class="form-control" placeholder="Senha" id="senhaUsuario" required />
                                     <div class="invalid-feedback" id="senhaErro"></div>
                                 </div>
                             </div>
@@ -52,3 +52,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/adicionarusuario/adicionarusuario.js"></script>
