@@ -10,46 +10,51 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/font.css" asp-append-version="true" />
     <link href="~/css/login/login.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
 </head>
 <body>
 
 
-    <div class="full-height">
-        <div class="form-container text-center">
-            <div class="vertical-aling-out">
-                <div class="vertical-aling-inner">
-                    <form asp-controller="Login" asp-action="Login">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <img class="img-login" src="@Url.Content("~/assets/tty_logo_mini.webp")" alt="Logo" />
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label></label>
-                                    <input id="email" class="form-control" type="email" name="email" placeholder="E-mail" required />
+    <section class="vh-80 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-white text-black" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <div class="mb-md-3 mt-md-4 pb-1">
+                                <form asp-controller="Login" asp-action="Login">
+                                <div class="d-inline-flex">
+                                <i class="bi bi-stars h1 text-black"></i>
+                                <h2 class="fw-bold mb-2 text-uppercase me-4">Login</h2>
+                                </div>
+                                <p class="text-black-50 mb-5">Informe seu login e senha</p>
+
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                                    <label class="form-label" for="email">Email</label>
                                     <span class="text-danger" id="emailError"></span>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label> </label>
-                                    <input id="senha" class="mat-form-field form-control" type="text" name="senha" placeholder="Senha" required />
+
+                                <div data-mdb-input-init class="form-outline form-white mb-4">
+                                    <input type="text" name="senha" id="senha" class="form-control form-control-lg" />
+                                    <label class="form-label" for="senha">Senha</label>
                                     <span class="text-danger" id="nameError"></span>
                                 </div>
-                            </div>
-                            <div style="margin-top: 16px;" class="col-md-12">
-                                <button type="submit" class="btn btn-primary">
-                                    Entrar
-                                </button>
+
+                                <p class="mb-5 pb-lg-2"><a class="text-black-50" href="#!">Esqueceu sua senha?</a></p>
+
+                                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-dark btn-lg px-5" type="submit">Login</button>
+
+                                </form>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-
             </div>
-
         </div>
-    </div>
+    </section>
 
     <script>
 
