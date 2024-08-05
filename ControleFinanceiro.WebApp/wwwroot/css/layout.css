@@ -16,6 +16,7 @@ html {
 body {
   margin-bottom: 60px;
   overflow:hidden;
+  font-family: 'Rubik';
 }
 .icones-navbar{
     margin-right:130px;
@@ -52,10 +53,12 @@ body {
 .barra-pesquisar{
     margin-left: 500px;
 }
-
+.icon-funcionalidade{
+    color: #000000;
+}
 .funcionalidades {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16.8px;
     color: #000000;
     text-decoration: none;
     margin-bottom: 10px;

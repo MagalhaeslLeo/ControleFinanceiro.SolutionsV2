@@ -4,3 +4,6 @@
 	background: -webkit-linear-gradient(to right, rgba(37, 117, 252, 1), rgba(3, 144, 144, 1));
 	background: linear-gradient(to right, rgba(37, 117, 252, 1), rgba(3, 144, 144, 1));
 }
+body {
+	font-family: 'Rubik';
+}

@@ -14,7 +14,7 @@
 	display:flex;
 	justify-content:end;
 	cursor: pointer;
-	color: #808080;
+	color: #606060;
 	font-size: 1.5rem;
 	text-decoration: none;
 }
@@ -22,10 +22,20 @@
 	padding-right: 10px;
 }
 .icone-adicionar:hover {
-	color: #1585f8;
+	color: #0c4e92;
 }
 .obterDespesaReceita{
 	cursor: pointer;
 }
+.card-custom {
+	margin-top: 50px;
+	margin-left: 180px;
+	border-radius: 1rem;
+}
 
+.card-header-custom {
+	background-color: #46cccc;
+	border-top-left-radius: 1rem !important;
+	border-top-right-radius: 1rem !important;
+}
 
